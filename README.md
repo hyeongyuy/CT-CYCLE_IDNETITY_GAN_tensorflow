@@ -1,6 +1,5 @@
-# WGAN_VGG_tensorflow
-Cycle Consistent Adversarial Denoising Network for Multiphase Coronary CT
-Angiography<br>
+# CYCLE_IDENTITY_GAN-tensorflow
+Kang, E., Koo, H. J., Yang, D. H., Seo, J. B., & Ye, J. C. (2018). Cycle Consistent Adversarial Denoising Network for Multiphase Coronary CT Angiography. arXiv preprint arXiv:1806.09748.<br>
 
 * WGAN_VGG
 >	* paper : https://arxiv.org/pdf/1806.09748.pdf
@@ -15,19 +14,18 @@ Angiography<br>
 
 ## Ntwork architecture  
 * Generator(revised image)
-** reference paper Kang, E., Chang, W., Yoo, J., & Ye, J. C. (2018). Deep convolutional framelet denosing for low-dose ct via wavelet residual network. IEEE transactions on medical imaging, 37(6), 1358-1369.
+> reference : Kang, E., Chang, W., Yoo, J., & Ye, J. C. (2018). Deep convolutional framelet denosing for low-dose ct via wavelet residual network. IEEE transactions on medical imaging, 37(6), 1358-1369.
 ![generator architecture](https://github.com/hyeongyuy/CT-CYCLE_IDNETITY_GAN_tensorflow/blob/master/img/revised_generator_arc.JPG)<br>
 
 > 1. To reduce network complexity, images are used directly as inputs to the network instead of the wavelet transform coefficients<br>
 
-> 2. The First convolution layer uses 128 set of 3*3 convolution kernels to produce 128 channel feature maps.
+> 2. The First convolution layer uses 128 set of 3 * 3 convolution kernels to produce 128 channel feature maps.
 
-> 3. We have 6 set of module composed of 3 sets of convolution, batch normalization, and ReLU layers, and one bypass connection with a ReLU layer.  Convolution layers in the modules use 128 set of 3*3*128 convolution kernels. 
+> 3. We have 6 set of module composed of 3 sets of convolution, batch normalization, and ReLU layers, and one bypass connection with a ReLU layer.  Convolution layers in the modules use 128 set of 3 * 3 * 128 convolution kernels. 
 
-> 4. In addition, the proposed network has a concatenation layer that concatenates the inputs of each module and the output of the last module,    
+> 4. In addition, the proposed network has a concatenation layer that concatenates the inputs of each module and the output of the last module.
 
-> 5. followed by the convolution layer with 128 set of 3*3*896 convolution kernels. The last convolution layer uses 15 sets of 3*3*128 convolution kernels.
-Finally, we add an end-to-end bypass connection.
+> 5. followed by the convolution layer with 128 set of 3 * 3 * 896 convolution kernels. The last convolution layer uses 15 sets of 3 * 3 * 128 convolution kernels. Finally, we add an end-to-end bypass connection.
 
 
 * discriminator
@@ -60,7 +58,7 @@ Finally, we add an end-to-end bypass connection.
 > * img_vmax : max value
 > * img_vmin : min value
 * Train/Test
-> * model : red_cnn, wgan_vgg, cyclegan (for image preprocessing)
+> * model : red_cnn, wgan_vgg, cyclegan, cycle_identity (for image preprocessing)
 > * phase : train | test
 
 * Training detail
@@ -76,8 +74,8 @@ Finally, we add an end-to-end bypass connection.
 > * ndf : # of discriminator filters in first conv layer
 
 * others
-> * save_freq : save a model every save_freq (iterations)
-> * print_freq : print_freq (iterations)
+> * save_freq : save a model every step (iterations)
+> * print_freq : print frequency (iterations)
 > * continue_train : load the latest model: true, false
 > * gpu_no : visible devices(gpu no)
 > * unpair : unpaired image(cycle loss), (default=True)
