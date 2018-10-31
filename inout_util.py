@@ -204,10 +204,15 @@ class DCMDataLoader(object):
                 while not coord.should_stop():
                     LDCT_imgs, NDCT_imgs = [], []
                     for i in range(enqueue_size):
-                        sltd_idx = np.random.choice(self.LDCT_index)
+                        if self.is_unpair:
+                            L_sltd_idx = np.random.choice(self.LDCT_index)
+                            N_sltd_idx = np.random.choice(self.NDCT_index)
+                        else:
+                            L_sltd_idx = N_sltd_idx = np.random.choice(self.LDCT_index)
+                            
                         pat_LDCT, pat_NDCT = \
-                            self.get_randam_patches(self.LDCT_images[sltd_idx],
-                                self.NDCT_images[sltd_idx], image_size, model = self.model)
+                            self.get_randam_patches(self.LDCT_images[L_sltd_idx],
+                                self.NDCT_images[N_sltd_idx], image_size, model = self.model)
                         LDCT_imgs.append(np.expand_dims(pat_LDCT, axis=-1))
                         NDCT_imgs.append(np.expand_dims(pat_NDCT, axis=-1))
                     sess.run(enqueue_op, feed_dict={queue_input: np.array(LDCT_imgs), \
