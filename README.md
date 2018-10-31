@@ -16,7 +16,7 @@ Angiography<br>
 ## Ntwork architecture  
 * Generator(revised image)
 ** reference paper Kang, E., Chang, W., Yoo, J., & Ye, J. C. (2018). Deep convolutional framelet denosing for low-dose ct via wavelet residual network. IEEE transactions on medical imaging, 37(6), 1358-1369.
-![generator architecture](https://github.com/hyeongyuy/CYCLE_IDENTITY_GAN/blob/master/img/revised_generator_arc.jpg)<br>
+![generator architecture](https://github.com/hyeongyuy/CT-CYCLE_IDNETITY_GAN_tensorflow/blob/master/img/revised_generator_arc.JPG)<br>
 
 > 1. To reduce network complexity, images are used directly as inputs to the network instead of the wavelet transform coefficients<br>
 
@@ -31,7 +31,7 @@ Finally, we add an end-to-end bypass connection.
 
 
 * discriminator
-![discriminator architecture](https://github.com/hyeongyuy/CYCLE_IDENTITY_GAN/blob/master/img/discriminator_arc.jpg)<br>
+![discriminator architecture](https://github.com/hyeongyuy/CT-CYCLE_IDNETITY_GAN_tensorflow/blob/master/img/discriminator_arc.JPG)<br>
 > * it consists of 5 convolution layers including the last fully-connected layer. The first convolution layer uses 64 sets of 4 * 4 convolution kernels, and the number of convolution kernels in the following layers is twice that of the previous layer except the last fully connected layer.
 
 ## Training detail  
