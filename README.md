@@ -1,7 +1,7 @@
 # CYCLE_IDENTITY_GAN-tensorflow
 Kang, E., Koo, H. J., Yang, D. H., Seo, J. B., & Ye, J. C. (2018). Cycle Consistent Adversarial Denoising Network for Multiphase Coronary CT Angiography. arXiv preprint arXiv:1806.09748.<br>
 
-* WGAN_VGG
+* CYCLE_IDENTITY_GAN
 >	* paper : https://arxiv.org/pdf/1806.09748.pdf
 >	* reference code:  
 >     * cyclegan : https://github.com/xhujoy/CycleGAN-tensorflow
