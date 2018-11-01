@@ -93,7 +93,7 @@ class cycle_identity(object):
         self.G_loss_X2Y = md.least_square(self.D_GX, tf.ones_like(self.D_GX)) 
         self.G_loss_Y2X = md.least_square(self.D_FY, tf.ones_like(self.D_FY)) 
         
-        self.G_loss = self.G_loss_X2Y + self.G_loss_X2Y + self.cycle_loss + self.identity_loss
+        self.G_loss = self.G_loss_X2Y + self.G_loss_Y2X + self.cycle_loss + self.identity_loss
 
         #dicriminator loss
         self.D_loss_patch_Y = md.least_square(self.D_Y, tf.ones_like(self.D_Y))
