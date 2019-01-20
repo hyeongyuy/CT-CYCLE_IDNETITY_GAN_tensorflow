@@ -92,7 +92,5 @@ def least_square(A, B):
 def cycle_loss(A, F_GA, B, G_FB, lambda_):
     return lambda_ * (tf.reduce_mean(tf.abs(A - F_GA)) + tf.reduce_mean(tf.abs(B - G_FB)))
 
-def identity_loss(A, G_B, F_A, B, gamma):
+def identity_loss(A, G_B, B, F_A, gamma):
     return   gamma * (tf.reduce_mean(tf.abs(G_B - B)) + tf.reduce_mean(tf.abs(F_A - A)))
-
-   

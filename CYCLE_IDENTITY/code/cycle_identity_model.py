@@ -96,7 +96,7 @@ class cycle_identity(object):
         #### Loss
         #generator loss
         self.cycle_loss = md.cycle_loss(self.patch_X, self.F_GX, self.patch_Y, self.G_FY, args.L1_lambda)
-        self.identity_loss = md.identity_loss(self.patch_Y, self.G_Y, self.F_X, self.patch_X, args.L1_gamma)
+        self.identity_loss = md.identity_loss(self.patch_X, self.G_Y, self.patch_Y, self.F_X, args.L1_gamma)
         self.G_loss_X2Y = md.least_square(self.D_GX, tf.ones_like(self.D_GX)) 
         self.G_loss_Y2X = md.least_square(self.D_FY, tf.ones_like(self.D_FY)) 
         
